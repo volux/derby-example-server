@@ -5,7 +5,7 @@ module.exports = store;
 
 function store(derby, config) {
 
-  var db = shareDbMongo(process.env.MONGO_URL + '?auto_reconnect', {safe: true});
+  var db = shareDbMongo(process.env.MONGO_URL, {auto_reconnect: true, safe: true});
 
   derby.use(require('racer-bundle'));
 
