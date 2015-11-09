@@ -12,10 +12,13 @@ var options = {
         'public': './public',
         'favicon': '/images/favicon.ico'
     },
-    'prebundle': []
+    'prebundle': [],
+    'MONGO_URL': 'mongodb://localhost:27017/examples',
+    'SESSION_SECRET': 'your-session-secret',
+    'SESSION_COOKIE': 'your-session-cookie'
 };
 var apps = [
-  require('./apps/example')
+  require('./apps/examples')
 ];
 
 require('derby-example-server')(options, apps);
