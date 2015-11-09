@@ -13,9 +13,13 @@ var options = {
         'favicon': '/images/favicon.ico'
     },
     'prebundle': [],
-    'MONGO_URL': 'mongodb://localhost:27017/examples',
-    'SESSION_SECRET': 'your-session-secret',
-    'SESSION_COOKIE': 'your-session-cookie'
+    'defaults': {
+        'MONGO_URL': 'mongodb://localhost:27017/examples',
+        'SESSION_SECRET': 'your-session-secret',
+        'SESSION_COOKIE': 'your-session-cookie',
+        'SERVER_IP': 'localhost',
+        'PORT': 3000
+    }
 };
 var apps = [
   require('./apps/examples')

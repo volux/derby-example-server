@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = function (options) {
 
-  for (var key in options) if (options.hasOwnProperty(key)) {
+  for (var key in options.defaults) if (options.defaults.hasOwnProperty(key)) {
 
     process.env[key] = process.env[key] || options[key];
   }
