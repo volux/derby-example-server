@@ -1,4 +1,5 @@
 // Config
+var path = require('path');
 
 module.exports = function (options) {
 
@@ -7,6 +8,9 @@ module.exports = function (options) {
     process.env[key] = process.env[key] || options[key];
   }
 
-  process.env['MONGO_URL'] = process.env['MONGOLAB_URI'] || process.env['MONGO_URL']
+  process.env['MONGO_URL'] = process.env['MONGOLAB_URI'] || process.env['MONGO_URL'];
 
+  options.path.public = path.normalize(process.cwd() + '/' + options.path.public);
+
+  return options;
 };

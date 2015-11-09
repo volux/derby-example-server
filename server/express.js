@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var highway = require('racer-highway');
 
-module.exports = function (config, apps, routes, store, error, cb){
+module.exports = function (config, apps, router, store, error, cb){
 
   var connectStore = require('connect-mongo')(expressSession);
   var sessionStore = new connectStore({url: process.env.MONGO_URL});
@@ -36,10 +36,11 @@ module.exports = function (config, apps, routes, store, error, cb){
     .use(createUserId);
 
   apps.forEach(function (app) {
+
     expressApp.use(app.router());
   });
 
-  expressApp.use(routes);
+  expressApp.use(router);
 
   expressApp
     .all('*', function (req, res, next) { next('404: ' + req.url); })

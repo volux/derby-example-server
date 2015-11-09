@@ -2,7 +2,6 @@ module.exports = function (options, apps, routes) {
 
   var async = require('async');
   var derby = require('derby');
-
   var http  = require('http');
   var chalk = require('chalk');
 
@@ -14,11 +13,12 @@ module.exports = function (options, apps, routes) {
 
     apps = apps || [];
 
+    var router = require('./server/routes')(routes);
     var express = require('./server/express');
     var store = require('./server/store')(derby, config);
     var error = require('./server/error');
 
-    express(config, apps, routes, store, error, function (expressApp, upgrade) {
+    express(config, apps, router, store, error, function (expressApp, upgrade) {
 
       var server = http.createServer(expressApp);
 
