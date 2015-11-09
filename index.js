@@ -27,10 +27,7 @@ module.exports = function (options, apps, routes) {
       async.each(apps, bundleApp, function () {
         server.listen(process.env.PORT, process.env.SERVER_IP, function () {
 
-          console.log(
-            '%d listening. Go to: http://%d:%d/',
-            process.pid, process.env.SERVER_IP, process.env.PORT
-          );
+          console.log(process.pid + ' listening. Go to: http://' + process.env.SERVER_IP + ':' + process.env.PORT +'/');
         });
       });
 
