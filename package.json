@@ -33,7 +33,6 @@
     "derby-stylus": "^0.1.0",
     "express": "^4.13.3",
     "express-session": "^1.12.1",
-    "kerberos": "0.0.17",
     "racer-bundle": "^0.2.2",
     "racer-highway": "^6.1.0",
     "serve-favicon": "^2.3.0",
